@@ -1,6 +1,6 @@
 const ModelUsers = require('../model/Users');
 const bcrypt = require('bcrypt')//biblioteca para segurança da senha
-const { v4:uuid} = require('uuid')
+
 
 module.exports = {
     showIndex:(req,res)=>{
@@ -13,7 +13,7 @@ module.exports = {
         
         
     },
-    registerUser:(req,res)=>{//Monstra Formulário para registrar usuário (GET)
+    registerUser:(req,res)=>{//Mostrar Formulário para registrar usuário (GET)
         res.send('Formulario de Criação')
     },
     saveUser:(req,res)=>{//Recebe dados do formulário de registro de usuário (POST)
@@ -37,7 +37,8 @@ module.exports = {
             email:email,
             password:hash
         }).then(()=>{ //sucesso 
-            res.render('login',{dados:req.body}) // VAI GERAR A PÁGINA COM AS DADOS DE LOGIN 
+            //res.render('login',{dados:req.body}) // VAI GERAR A PÁGINA COM AS DADOS DE LOGIN 
+            res.send("pagina de login")
 
         }).catch((error)=>{//erro na criação 
             res.redirect(501,'/user/createdUser')
