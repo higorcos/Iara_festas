@@ -35,7 +35,7 @@ module.exports = {
     },
     showEditProduct:(req,res)=>{//página de form de edição de produto
         const idProduct = req.params.id
-        if(idProduct != undefined){
+
         ModelProducts.findByPk(idProduct).then(product=>{
             if(product != undefined){
                 res.json(product)//render
@@ -44,10 +44,8 @@ module.exports = {
             }
         }).catch((error=>{
             console.log(error)
+            res.redirect('/products')
         }))
-    }else{
-        res.redirect('/products')
-    }
     },
     updateProduct:(req,res)=>{//update de edição (produtos)
         const id = req.body.id
@@ -69,19 +67,28 @@ module.exports = {
     },
     deleteProduct:(req,res)=>{//deletar produto
         const id = req.params.id
-        if(id != undefined){
-            ModelProducts.destroy({
-                where:{id}
-            }).then(()=>{
+        if(isNaN(id) == false){ // quando o id é numero (o id dos produtos estão configurados para ser números)
+      
+            ModelProducts.findByPk(id).then(product=>{
+               if(product != undefined){ 
+               ModelProducts.destroy({where:{id}}).then(()=>{ //sucesso em deletar
                 res.redirect('/products')
-               
-            }).catch((error=>{
-            console.log(error)
-            
+        
+            }).catch((error=>{ // erro no delete
+                console.log(error)
+                res.redirect('/products')
             }))
-        }else{
-            res.redirect(`/product/edit/${id}`)
+               }else{ //não existe no banco de dados
+                res.redirect('/products')
         }
+            }).catch((error=>{
+                console.log(error) // erro na busca 
+                res.redirect('/products')
 
+        }))
+        }else{ // o id não é um número
+            res.redirect('/products')
+            
+        }
     }
 }
