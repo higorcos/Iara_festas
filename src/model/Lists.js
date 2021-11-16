@@ -1,19 +1,23 @@
-const Sequelize = require('sequelize')
+const sequelize = require('sequelize')
 const ModelProducts = require('../../src/model/Products')
 const database = require('../database/config')
 
 const lists = database.define('lists',{
+    id:{
+        type: sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull:false,
+    },
     name:{
-        type: Sequelize.STRING,
+        type: sequelize.STRING,
         allowNull:false
     },
+    
 });
 //relacionamento de 1 para Muitos
-ModelProducts.hasMany(lists)
-lists.belongsTo(ModelProducts)
 
 
-
-lists.sync({force:true})
+lists.sync({force:false})
 
 module.exports = lists
