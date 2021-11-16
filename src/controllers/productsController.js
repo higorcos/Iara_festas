@@ -20,10 +20,10 @@ module.exports = {
         ModelProducts.create({
         name:name,
         color:color,
-      /*   size:size,
+        size:size,
         value:value,
         inventory:inventory,
-        category:category, */
+        category:category, 
         
 
         }).then(()=>{
@@ -47,7 +47,7 @@ module.exports = {
             res.redirect('/products')
         }))
     },
-    updateProduct:(req,res)=>{//update de edição (produtos)
+    updateProduct:(req,res)=>{//update da edição (produtos)
         const id = req.body.id
         const name = req.body.name
         const color = req.body.color
