@@ -23,6 +23,7 @@ routes.post('/product/delete/:id',ProductsController.deleteProduct)//apagar prod
 //lists
 routes.post('/list/created', ListsControllers.saveList) //Dados formulário para criação da lista
 //components
-routes.post('/components/list/:listId', ComponentsControllers.showListComponents) //mostrar components de uma lista 
-routes.post('/component/:listId/:productId', ComponentsControllers.addComponentToList) //// adicionar componente(produto) a lista
+routes.get('/components/list/:listId', ComponentsControllers.showListComponents) //mostrar components de uma lista 
+routes.post('/component/add/:listId/:productId', ComponentsControllers.addComponentToList) //// adicionar componente(produto) a lista
+routes.post('/component/remove/:listId/:productId', ComponentsControllers.removeComponentToList) //// remover componente(produto) da lista
 module.exports = routes;            
