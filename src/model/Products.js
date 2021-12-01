@@ -22,12 +22,13 @@ const products = database.define('products',{
         allowNull:true,
     },
     value:{
-        type: sequelize.STRING,
+        type: sequelize.INTEGER,
         allowNull:true,
     },
-    inventory:{
-        type: sequelize.STRING,
-        allowNull:true,
+    inventory_mode:{
+        type: sequelize.BOOLEAN,
+        //allowNull:false,
+        defaultValue: false
     },
     category:{
         type: sequelize.STRING,
@@ -47,4 +48,3 @@ const products = database.define('products',{
 products.sync({force:false})
 
 module.exports = products
-
