@@ -19,6 +19,7 @@ module.exports = {
         })
     },
     deleteList:(req,res)=>{//deletar lista
+        
     },  
 
 }
