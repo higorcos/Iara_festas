@@ -14,11 +14,11 @@ const inventory = database.define('inventory_',{
         allowNull:true,
        // defaultValue: 1
     },
-    available:{//quantidade disponivel
+    available:{//quantidade disponível
         type: sequelize.INTEGER,
         defaultValue: 0
     },
-    unavailable:{//quantidade indisponivel
+    unavailable:{//quantidade indisponível
         type: sequelize.INTEGER,
         allowNull:true,
 

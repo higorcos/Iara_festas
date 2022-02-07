@@ -2,8 +2,10 @@ const express = require('express');
 const routes = express.Router();
 const UserController = require('../src/controllers/userController')
 const ProductsController = require('../src/controllers/productsController')
-const ComponentsControllers = require('../src/controllers/componentsControllers')
 const ListsControllers = require('../src/controllers/listsControllers')
+const ComponentsControllers = require('../src/controllers/componentsControllers')
+const InventoryControllers = require('./controllers/inventoryControllers')
+const TrafficControllers = require('../src/controllers/trafficController')
 
 const adminAuth = require('../src/middleware/adminAuth')
 
@@ -26,4 +28,13 @@ routes.post('/list/created', ListsControllers.saveList) //Dados formulário para
 routes.get('/components/list/:listId', ComponentsControllers.showListComponents) //mostrar components de uma lista 
 routes.post('/component/add/:listId/:productId', ComponentsControllers.addComponentToList) //// adicionar componente(produto) a lista
 routes.post('/component/remove/:listId/:productId', ComponentsControllers.removeComponentToList) //// remover componente(produto) da lista
+//inventory
+routes.get('/inventory', InventoryControllers.showInventory);
+routes.get('/inventory/created', InventoryControllers.registerInventory);
+routes.post('/inventory/created', InventoryControllers.saveInventory);
+routes.get('/inventory/edit/:id', InventoryControllers.showEditInventory);
+routes.post('/inventory/edit/update', InventoryControllers.updateInventory);
+routes.post('/inventory/delete/:id', InventoryControllers.deleteInventory);
+
+
 module.exports = routes;            
