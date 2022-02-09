@@ -23,11 +23,14 @@ routes.get('/product/edit/:id',ProductsController.showEditProduct)//Render-pági
 routes.post('/product/edit/update',ProductsController.updateProduct)//update das edições
 routes.post('/product/delete/:id',ProductsController.deleteProduct)//apagar produto
 //lists
+routes.get('/list', ListsControllers.showLists) //home listas
 routes.post('/list/created', ListsControllers.saveList) //Dados formulário para criação da lista
 //components
 routes.get('/components/list/:listId', ComponentsControllers.showListComponents) //mostrar components de uma lista 
-routes.post('/component/add/:listId/:productId', ComponentsControllers.addComponentToList) //// adicionar componente(produto) a lista
+routes.post('/component/add', ComponentsControllers.addComponentToList) //// adicionar componente(produto) a lista
 routes.post('/component/remove/:listId/:productId', ComponentsControllers.removeComponentToList) //// remover componente(produto) da lista
+routes.get('/components/:listId/:productId', ComponentsControllers.showEditComponent) //página de edição da quantidade de components(produto) 
+routes.post('/component/update', ComponentsControllers.updateComponent) //// update componente(produto) a lista
 //inventory
 routes.get('/inventory', InventoryControllers.showInventory);
 routes.get('/inventory/created', InventoryControllers.registerInventory);
@@ -35,6 +38,12 @@ routes.post('/inventory/created', InventoryControllers.saveInventory);
 routes.get('/inventory/edit/:id', InventoryControllers.showEditInventory);
 routes.post('/inventory/edit/update', InventoryControllers.updateInventory);
 routes.post('/inventory/delete/:id', InventoryControllers.deleteInventory);
+
+routes.post('/teste',(req,res)=>{
+    const id=req.body
+    res.send(id)
+});
+
 
 
 module.exports = routes;            

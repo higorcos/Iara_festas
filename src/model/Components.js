@@ -10,6 +10,10 @@ const components = database.define('components',{
         autoIncrement: true,
         allowNull:false,
     },
+    amount:{
+        type: sequelize.INTEGER,
+        allowNull:false,
+    }
 });
 //relacionamento de 1 para Muitos
 ModelProducts.hasMany(components)
