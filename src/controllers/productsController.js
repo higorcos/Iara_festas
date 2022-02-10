@@ -13,6 +13,7 @@ module.exports = {
         const color = req.body.color
         const size = req.body.size
         const value = req.body.value
+        const inventory_mode = req.body.inventory_mode
         const inventory = req.body.inventory
         const category = req.body.category
         const image = req.body.image
@@ -22,7 +23,7 @@ module.exports = {
         color:color,
         size:size,
         value:value,
-        inventory:inventory,
+        inventory_mode:inventory_mode,
         category:category, 
         
 
@@ -53,12 +54,12 @@ module.exports = {
         const color = req.body.color
         const size = req.body.size
         const value = req.body.value
-        const inventory = req.body.inventory
+        const inventory_mode = req.body.inventory_mode
         const category = req.body.category
         const image = req.body.image
-
+        console.log('up')
         
-        ModelProducts.update({name,color,size,value,inventory,category,image},{where: {id}}).then(()=>{
+        ModelProducts.update({name,color,size,value,inventory_mode,category,image},{where: {id}}).then(()=>{
 
             res.redirect(`/product/edit/${id}`)
         }).catch((error=>{

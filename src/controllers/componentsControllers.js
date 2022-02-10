@@ -55,8 +55,13 @@ module.exports = {
 
 
         ModelComponents.findOne({where:{productId, listId}}).then((result)=>{
-            //res.send(`Página de edição`)
-            res.json(result);
+            
+            if(result != null){ //encontrou no banco de dados
+                //res.send(`Página de edição`)
+                res.json(result);
+            }else{ // não encontrou
+                res.redirect(`/components/list/${listId}`)
+            }
 
         }).catch((error)=>{
             console.log(" ");
