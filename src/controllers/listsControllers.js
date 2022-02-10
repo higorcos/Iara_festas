@@ -39,8 +39,12 @@ module.exports = {
         const listId = req.params.id;
     
         ModelLists.findOne({where:{id:listId}}).then((result)=>{
-            //res.send(`Página de edição`)
-            res.json(result);
+            if(result != null){ //encontrou no banco de dados
+                //res.send(`Página de edição`)
+                res.json(result);
+            }else{ // não encontrou
+                res.redirect(`/list`)
+            }
 
         }).catch(()=>{
 
@@ -69,6 +73,7 @@ module.exports = {
         const listId = req.params.id;
     
         ModelLists.destroy({where:{id:listId}}).then((result)=>{
+            
             //res.send(`Página de edição`)
             res.json(result);
 

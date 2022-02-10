@@ -24,7 +24,12 @@ routes.post('/product/edit/update',ProductsController.updateProduct)//update das
 routes.post('/product/delete/:id',ProductsController.deleteProduct)//apagar produto
 //lists
 routes.get('/list', ListsControllers.showLists) //home listas
+routes.get('/list/created', ListsControllers.registerList) //Render-página de criação da lista
 routes.post('/list/created', ListsControllers.saveList) //Dados formulário para criação da lista
+routes.get('/list/edit/:id', ListsControllers.showEditList) //Render-página de edição da lista
+routes.post('/list/update', ListsControllers.updateList) //Dados formulário para edição da lista
+routes.post('/list/delete/:id', ListsControllers.deleteList) //deletar lista
+
 //components
 routes.get('/components/list/:listId', ComponentsControllers.showListComponents) //mostrar components de uma lista 
 routes.post('/component/add', ComponentsControllers.addComponentToList) //// adicionar componente(produto) a lista
