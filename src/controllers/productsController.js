@@ -57,13 +57,14 @@ module.exports = {
         const inventory_mode = req.body.inventory_mode
         const category = req.body.category
         const image = req.body.image
-        console.log('up')
+        //console.log('up')
         
         ModelProducts.update({name,color,size,value,inventory_mode,category,image},{where: {id}}).then(()=>{
 
             res.redirect(`/product/edit/${id}`)
         }).catch((error=>{
             console.log(error)
+            res.redirect(`/product`)
         }))
     },
     deleteProduct:(req,res)=>{//deletar produto
