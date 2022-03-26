@@ -32,6 +32,6 @@ const traffic = database.define('traffic',{
 ModelInventory.hasMany(traffic);
 traffic.belongsTo(ModelInventory);
 
-traffic.sync({force:false});
+traffic.sync({force:false}); 
 
 module.exports = traffic;
