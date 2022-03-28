@@ -2,27 +2,23 @@ const sequelize = require('sequelize');
 const database = require('../database/config');
 const ModelProducts = require('../../src/model/Products')
 
-const inventory = database.define('inventory_',{
+const inventory = database.define('inventory',{
     id:{
         type: sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull:false, 
     },
-    numberInventory:{//(quantidade)
+    inventoryQuantity:{//(quantidade)
         type: sequelize.INTEGER,
         allowNull:true,
        // defaultValue: 1
     },
     available:{//quantidade disponível
         type: sequelize.INTEGER,
-        defaultValue: 0
-    },
-    unavailable:{//quantidade indisponível
-        type: sequelize.INTEGER,
         allowNull:true,
-
     },
+    
 
     
 })

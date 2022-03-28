@@ -27,9 +27,9 @@ module.exports = {
         },
         saveInventory:(req,res)=>{// dados(post) form de criação 
             const productId = req.body.productId;
-            const numberInventory = req.body.numberInventory;
-            const available = req.body.available;
-            const unavailable = req.body.unavailable;
+            const inventoryQuantity  = req.body.inventoryQuantity;
+            const available = req.body.inventoryQuantity;
+         
             
             ModelInventory.findOne({where:{productId}}).then((result)=>{// Vai pesquisar se o produto já tá no inventário 
                 if(result != undefined){//Produto já está no inventário  
@@ -39,9 +39,8 @@ module.exports = {
                                                 // Se o produto ainda não estiver no inventário ela será criado
                     ModelInventory.create({
                         productId,
-                        numberInventory,
-                        available,
-                        unavailable
+                        inventoryQuantity,
+                        available
                     }).then(()=>{
                         res.send('Criado com Sucesso')
                     }).catch((erro)=>{
@@ -73,15 +72,13 @@ module.exports = {
         },
         updateInventory:(req,res)=>{//update 
             const productId = req.body.productId;
-            const numberInventory = req.body.numberInventory;
-            const available = req.body.available;
-            const unavailable = req.body.unavailable;
+            const inventoryQuantity = req.body.inventoryQuantity;
+            const available = req.body.inventoryQuantity
         
                     ModelInventory.update({
                         productId,
-                        numberInventory,
-                        available,
-                        unavailable
+                        inventoryQuantity,
+                        available
                     },{
                         where:{productId} //quando o id produto for  encontrado na tabela do inventário
                     }).then(()=>{
