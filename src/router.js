@@ -44,6 +44,16 @@ routes.get('/inventory/edit/:id', InventoryControllers.showEditInventory);
 routes.post('/inventory/edit/update', InventoryControllers.updateInventory);
 routes.post('/inventory/delete/:id', InventoryControllers.deleteInventory);
 
+//traffic
+routes.get('/traffic',TrafficControllers.showTraffic);
+routes.get('/traffic/created/:idInventory',TrafficControllers.registerTraffic);
+routes.post('/traffic/created',TrafficControllers.saveTraffic);
+routes.get('/traffic/edit/:idTraffic',TrafficControllers.showEditTraffic);
+routes.post('/traffic/edit/:idTraffic',TrafficControllers.updateTraffic);
+routes.post('/traffic/delete/:id',TrafficControllers.deleteTraffic);
+
+
+
 routes.post('/teste',(req,res)=>{
     const id=req.body
     res.send(id)

@@ -4,7 +4,7 @@ const ModelProducts = require('../../src/model/Products');
 const utilsAvailable = require('../../src/utils/remainingAvailable');
 
 module.exports = {
-    
+      
         showTraffic:(req,res)=>{//mostrar 
        
         //restringir a produto 
@@ -17,7 +17,7 @@ module.exports = {
             res.json(error);
             console.log(error);
         })
-        
+         
         },
         registerTraffic:(req,res)=>{// pagina form de criação 
             //res.send('Formulário de Criação')
