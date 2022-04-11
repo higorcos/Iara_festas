@@ -1,5 +1,5 @@
 const sequelize = require('sequelize')
-const ModelProducts = require('../../src/model/Products')
+const ModelProducts = require('../../src/models/Products')
 const database = require('../database/config')
 
 const lists = database.define('lists',{
@@ -13,11 +13,17 @@ const lists = database.define('lists',{
         type: sequelize.STRING,
         allowNull:false
     },
+    value:{
+        type: sequelize.STRING,
+        allowNull:true
+      }
+
+   
     
 });
 //relacionamento de 1 para Muitos
 
 
-lists.sync({force:false})
+lists.sync({force:true})
 
 module.exports = lists
