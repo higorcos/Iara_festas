@@ -1,6 +1,6 @@
-const ModelTraffic = require('../../src/model/Traffic');
-const ModelInventory = require('../../src/model/Inventory');
-const ModelProducts = require('../../src/model/Products');
+const ModelTraffic = require('../../src/models/Traffic');
+const ModelInventory = require('../../src/models/Inventory');
+const ModelProducts = require('../../src/models/Products');
 const utilsAvailable = require('../../src/utils/remainingAvailable');
 
 module.exports = {

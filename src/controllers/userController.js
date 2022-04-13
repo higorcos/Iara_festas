@@ -1,4 +1,4 @@
-const ModelUsers = require('../model/Users');
+const ModelUsers = require('../../src/models/Users');
 const bcrypt = require('bcrypt')//biblioteca para segurança da senha
 
 
@@ -17,7 +17,7 @@ module.exports = {
         res.send('Formulario de Criação')
     },
     saveUser:(req,res)=>{//Recebe dados do formulário de registro de usuário (POST)
-        
+         
         const name = req.body.name
         const email = req.body.email
         const password = req.body.password //has
@@ -77,5 +77,5 @@ module.exports = {
         })
 
     },
-  
+
 }

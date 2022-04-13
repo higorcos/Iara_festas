@@ -1,4 +1,4 @@
-const ModelProducts = require('../model/Products')
+const ModelProducts = require('../../src/models/Products')
 
 module.exports = {
     showProducts:(req,res)=>{//mostrar produtos
@@ -6,7 +6,7 @@ module.exports = {
     
     },
     registerProduct:(req,res)=>{// pagina form de criação de produto
-    res.send('Formulario de Criação')
+    res.send('Formulário de Criação')
     },
     saveProduct:(req,res)=>{// dados(post) form de criação de produtos
         const name = req.body.name

@@ -1,6 +1,6 @@
-const ModelComponents = require('../model/Components')
-const ModelProducts = require('../model/Products')
-const ModelLists = require('../model/Lists');
+const ModelComponents = require('../models/Components')
+const ModelProducts = require('../models/Products')
+const ModelLists = require('../models/Lists');
 
 
 module.exports = {

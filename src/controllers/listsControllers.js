@@ -1,4 +1,4 @@
-const ModelLists = require('../model/Lists')
+const ModelLists = require('../models/Lists')
 
 module.exports = {
     showLists:(req,res)=>{//mostrar as listas 
@@ -22,9 +22,12 @@ module.exports = {
     saveList:(req,res)=>{// dados(post) form de criação da lista
 
         const name = req.body.name;
+        const value = req.body.value;
+
 
         ModelLists.create({
             name:name,
+            value:value,
         }).then(()=>{
             res.send(`Lista ${name} criada`)
         }).catch((error)=>{
@@ -58,8 +61,10 @@ module.exports = {
     updateList:(req,res)=>{// Vai listar os produtos no front para adicionar a lista 
         const listId = req.body.id;
         const name = req.body.name;
+        const value = req.body.value;
 
-        ModelLists.update({name},{where:{id:listId}}).then(()=>{
+
+        ModelLists.update({name,value},{where:{id:listId}}).then(()=>{
             res.send(`Atualizado com sucesso`);
         }).catch(()=>{
             console.log(" ");

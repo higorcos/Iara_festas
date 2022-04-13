@@ -1,6 +1,6 @@
 const sequelize = require('sequelize');
 const database = require('../database/config');
-const ModelProducts = require('../../src/model/Products')
+const ModelProducts = require('../../src/models/Products')
 
 const inventory = database.define('inventory',{
     id:{

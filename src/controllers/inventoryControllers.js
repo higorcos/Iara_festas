@@ -1,5 +1,5 @@
-const ModelInventory = require('../model/Inventory');
-const ModelProducts = require('../model/Products');
+const ModelInventory = require('../../src/models/Inventory');
+const ModelProducts = require('../../src/models/Products');
 
 module.exports = {
     

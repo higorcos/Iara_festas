@@ -1,5 +1,4 @@
 const sequelize = require('sequelize')
-const ModelProducts = require('../../src/models/Products')
 const database = require('../database/config')
 
 const lists = database.define('lists',{

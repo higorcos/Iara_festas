@@ -23,7 +23,7 @@ server.use(session({
     //secret uma segurança (o secret vai para o lado do servidor)
     //cookie é um lembrete indireto do secret (o cookie fica no lado do cliente)
     //maxAge tempo limite que o cookie é valido
-    //o salvamento de dados padrão do 'express-sessions' é na nemoria ram, não é funcional para grandes aplicações.
+    //o salvamento de dados padrão do 'express-sessions' é na nemória ram, não é funcional para grandes aplicações.
 
 }))
 
@@ -33,10 +33,11 @@ database.authenticate().then(()=>{
 }).catch((error)=>{
     console.log(error)
     console.log('         Database connection error')
-})
+}) 
 //rotas
 server.use(routes)
 
 
-const port = 8080
+const port = 8080   
 server.listen(port,()=>console.log(`         Server Online: (port ${port})`))
+ 

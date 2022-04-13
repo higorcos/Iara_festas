@@ -1,8 +1,8 @@
-const ModelTraffic = require('../../src/model/Traffic');
-const ModelInventory = require('../../src/model/Inventory');
-const ModelProducts = require('../../src/model/Products');
+const ModelTraffic = require('../../src/models/Traffic');
+const ModelInventory = require('../../src/models/Inventory');
+const ModelProducts = require('../../src/models/Products');
 
-module.exports = {
+module.exports = { 
 
     updateAvailable:(idInventory)=>{
          ModelInventory.findOne({where:{id:idInventory},include: [ModelProducts,ModelTraffic]}).then((result)=>{
